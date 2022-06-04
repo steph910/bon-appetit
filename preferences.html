@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Preferences | Bon Appétit</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <!-- bootstrap-->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Quicksand&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+    <script src=
+"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+
+    <style>
+        .form-div {
+            width: 60%;
+            margin: 0 auto;
+            color: #283359;
+            background-color: white;
+            border-radius: 2rem;
+        }
+        .form-header {
+            background-color: #F97068;
+            padding: 5%; 
+            border-radius: 2rem 2rem 0 0;
+        }
+        form {
+            padding: 7%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm justify-content-center navbar-light bg-light"> <!--sticky-top or fixed-top or none?-->
+        <div class="container-fluid">
+            <div>
+                <a class="navbar-brand" href="index.html">Bon Appétit</a>
+            </div>
+            <div>
+                <span class="navbar-text">🍕🍱🥗🍔🥙🍛</span> 
+                <!--luxury: moving text across navbar-->
+            </div>
+            
+            <div>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbar">
+                    
+                    <ul class="navbar-nav ms-auto"> <!--for right align: bootstrap 4 is ml-auto, but 5 is ms-auto-->
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="preferences.html">Preferences</a>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+    </nav> 
+
+    <div id="header">
+        <h1 class="green-text my-5">Bon Appétit</h1>
+        <h5>The simple restaurant decider we all need</h5>
+    </div>
+    
+    <div id="content">
+        <div class="form-div">  
+            <div class="form-header">
+                <h3 class="text-center fw-bold">Set your user preferences!</h2>
+            </div>
+            <form action="index.html">
+                <div class="container align-items-center">
+                    <div class="row">
+                        <label for="zipcode-input" class="form-label col-lg-4 col-md-5 fw-bold">Zip Code</label>
+                        <input type="text" id="zipcode-input" class="col-lg-7 col-md-7" placeholder="Enter valid zip code" required>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div id="diet-list" class="col">
+                            <p class="fw-bold">Diet</p>
+                            <div class="d-flex flex-column">
+                                <div>
+                                    <input type="checkbox" name="diet[]" id="vegan">
+                                    <label for="vegan">Vegan</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="diet[]" id="vegetarian">
+                                    <label for="vegetarian">Vegetarian</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="diet[]" id="pescatarian">
+                                    <label for="pescatarian">Pescatarian</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <p class="fw-bold">My price range is...</p>>
+                            
+                            <!--fieldset class="range__field"-->
+                                <div class="range"> 
+                                    <div class="sliderValue">
+                                        <p id="value-to-show">$</p>
+                                    </div>
+                                    
+                                    <div class="field">
+                                        <div class="value left">$</div>
+                                        <input type="range" min="1" max="4" value="1" step="1" oninput="displayValue(this.value)"> 
+                                        <div class="value right">$$$$</div>
+                                    </div>
+                                    
+                                </div>
+
+                                <script>
+                                    function displayValue(val) {
+                                    document.getElementById("value-to-show").innerHTML = val; 
+                                    }
+                                </script>
+
+                                <svg role="presentation" width="141" height="10">
+                                    <rect class="range__tick" x="20" y="3" width="1" height="10"></rect>
+                                    <rect class="range__tick" x="60" y="3" width="1" height="10"></rect>
+                                    <rect class="range__tick" x="100" y="3" width="1" height="10"></rect>
+                                    <rect class="range__tick" x="140" y="3" width="1" height="10"></rect>
+                                </svg>
+                                <svg role="presentation" width="180" height="18">
+                                    <text class="range__point" x="16" y="14" text-anchor="start">$</text>
+                                    <text class="range__point" x="52" y="14" text-anchor="start">$$</text>
+                                    <text class="range__point" x="87.5" y="14" text-anchor="start">$$$</text>
+                                    <text class="range__point" x="125" y="14" text-anchor="start">$$$$</text>
+                                </svg>
+
+                            <!--/fieldset-->
+                            
+                        </div>
+                    </div>
+
+                    <div class="mt-5">
+                        <p class="fw-bold">Accommodations</p>
+                        <div class="d-flex flex-column">
+                            <div>
+                                <input type="checkbox" name="wheelchair-input" id="wheelchair-input" value="one">
+                                <label for="wheelchair-input">Wheelchair accessible</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="bathroom-input" id="bathroom-input" value="two">
+                                <label for="bathroom-input">Gender neutral bathroom</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mt-5 text-center"><input id="preferences-submit-btn" class="btn" type="submit" value="Done"></div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="preferences.js"></script>
+
+    
+    
+</body>
+</html>

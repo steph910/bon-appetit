@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    background-color: #283359;
+    color: white;
+    font-family: 'Quicksand', sans-serif;
+}
+#header {
+    margin: 5rem 1rem;
+    text-align: center;
+}
+
+
+h1 {
+    font-family: 'Delius Swash Caps', cursive;
+    font-size: 8rem;
+}
+#content {
+    width: 75%;
+    margin: 8rem auto;
+}
+h2 {
+    font-size: 3rem;
+}
+.btn {
+    background-color: #d1d646;
+    color: #283359;
+    font-weight: bold;
+}
+.btn:hover {
+    background-color: #b5ba2e;
+}
+.green-text {
+    color: #D1D646;
+}
+.red-text {
+    color: #F97068;
+}
+
+@media(max-width: 768px) {
+    h1 {
+        font-size: 16vw;
+    }
+}
