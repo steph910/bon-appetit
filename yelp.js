@@ -1,6 +1,5 @@
-
-
 function getResults() {
+  document.getElementById("results").style.display = "block";
   let searchTerm = document.querySelector("#search-input").value;
   let zipcode = localStorage.getItem("BAzipcode");
   httpGET(searchTerm);
@@ -8,8 +7,6 @@ function getResults() {
 
 function httpGET(searchTerm) {
   let zipcode = localStorage.getItem("BAzipcode");
-  //test
-  // let corsLink = "https://cors-anywhere.herokuapp.com/";
   let endpoint = "https://api.yelp.com/v3/businesses/search?callback=?&location=" + zipcode;
 
   if (searchTerm) {
