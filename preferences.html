@@ -35,7 +35,7 @@
     </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-sm justify-content-center navbar-light bg-light"> <!--sticky-top or fixed-top or none?-->
+    <nav id="nav" class="navbar navbar-expand-sm justify-content-center navbar-light bg-light"> <!--sticky-top or fixed-top or none?-->
         <div class="container-fluid">
             <div>
                 <a class="navbar-brand" href="index.html">Bon Appétit</a>
@@ -75,10 +75,10 @@
             <div class="form-header">
                 <h3 class="text-center fw-bold">Set your user preferences!</h2>
             </div>
-            <form action="index.html">
+            <form id="preferences-form" action="index.html">
                 <div class="container align-items-center">
                     <div class="row">
-                        <label for="zipcode-input" class="form-label col-lg-4 col-md-5 fw-bold">Zip Code</label>
+                        <label for="zipcode-input" class="form-label col-lg-4 col-md-5 fw-bold">Zip Code *</label>
                         <input type="text" id="zipcode-input" class="col-lg-7 col-md-7" placeholder="Enter valid zip code" required>
                     </div>
 
@@ -94,64 +94,80 @@
                                     <input type="checkbox" name="diet[]" id="vegetarian">
                                     <label for="vegetarian">Vegetarian</label>
                                 </div>
-                                <div>
-                                    <input type="checkbox" name="diet[]" id="pescatarian">
-                                    <label for="pescatarian">Pescatarian</label>
-                                </div>
                             </div>
                         </div>
 
                         <div class="col">
-                            <p class="fw-bold">My price range is...</p>>
-                            
-                            <!--fieldset class="range__field"-->
-                                <div class="range"> 
-                                    <div class="sliderValue">
-                                        <p id="value-to-show">$</p>
-                                    </div>
-                                    
+                            <p class="fw-bold">My price range is...</p>
+                            <b id="value-to-show">$</b>
+
+                            <fieldset class="range__field">
+                                <!--div class="range"-->
                                     <div class="field">
-                                        <div class="value left">$</div>
+                                        <!--div>$</div-->
                                         <input type="range" min="1" max="4" value="1" step="1" oninput="displayValue(this.value)"> 
-                                        <div class="value right">$$$$</div>
-                                    </div>
-                                    
+                                        <!--div>$$$$</div-->
+                                    <!--/div-->
                                 </div>
 
+
                                 <script>
-                                    function displayValue(val) {
-                                    document.getElementById("value-to-show").innerHTML = val; 
+                                    function displayValue(val1) {
+                                        if (val1 == 1) {
+                                            dollar = "$";
+                                        }
+                                        else if (val1 == 2) {
+                                            dollar = "$$";
+                                        }
+                                        else if (val1 == 3) {
+                                            dollar = "$$$";
+                                        }
+                                        else {
+                                            dollar = "$$$$";
+                                        }
+                                        document.getElementById("value-to-show").innerHTML = dollar; 
                                     }
+
+                                    // const sliderValue = document.querySelector("span");
+                                    // const inputSlider = document.querySelector("input");
+
+                                    // inputSlider.oninput = (() => {
+                                    //     let val2 = inputSlider.value;
+                                    //     sliderValue.textContent = val2;
+                                    //     sliderValue.style.left = (val2/2) + "%";
+                                    // })
+                                    
+
                                 </script>
 
                                 <svg role="presentation" width="141" height="10">
-                                    <rect class="range__tick" x="20" y="3" width="1" height="10"></rect>
-                                    <rect class="range__tick" x="60" y="3" width="1" height="10"></rect>
-                                    <rect class="range__tick" x="100" y="3" width="1" height="10"></rect>
-                                    <rect class="range__tick" x="140" y="3" width="1" height="10"></rect>
+                                    <rect class="range__tick" x="5" y="3" width="1" height="10"></rect>
+                                    <!--rect class="range__tick" x="60" y="3" width="1" height="10"></rect>
+                                    <rect class="range__tick" x="100" y="3" width="1" height="10"></rect-->
+                                    <rect class="range__tick" x="123" y="3" width="1" height="10"></rect>
                                 </svg>
                                 <svg role="presentation" width="180" height="18">
-                                    <text class="range__point" x="16" y="14" text-anchor="start">$</text>
-                                    <text class="range__point" x="52" y="14" text-anchor="start">$$</text>
-                                    <text class="range__point" x="87.5" y="14" text-anchor="start">$$$</text>
-                                    <text class="range__point" x="125" y="14" text-anchor="start">$$$$</text>
+                                    <text class="range__point" x="1" y="14" text-anchor="start">$</text>
+                                    <!--text class="range__point" x="52" y="14" text-anchor="start">$$</text>
+                                    <text class="range__point" x="87.5" y="14" text-anchor="start">$$$</text-->
+                                    <text class="range__point" x="106" y="14" text-anchor="start">$$$$</text>
                                 </svg>
 
-                            <!--/fieldset-->
+                            </fieldset>
                             
                         </div>
                     </div>
 
                     <div class="mt-5">
                         <p class="fw-bold">Accommodations</p>
-                        <div class="d-flex flex-column">
+                        <div id="accomodations-list" class="d-flex flex-column">
                             <div>
-                                <input type="checkbox" name="wheelchair-input" id="wheelchair-input" value="one">
-                                <label for="wheelchair-input">Wheelchair accessible</label>
+                                <input type="checkbox" name="attribute[]" id="wheelchair_accessible">
+                                <label for="wheelchair_accessible">Wheelchair accessible</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="bathroom-input" id="bathroom-input" value="two">
-                                <label for="bathroom-input">Gender neutral bathroom</label>
+                                <input type="checkbox" name="attribute[]" id="gender_neutral_restrooms">
+                                <label for="gender_neutral_restrooms">Gender neutral restroom</label>
                             </div>
                         </div>
                     </div>
@@ -164,9 +180,14 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-    <script src="preferences.js"></script>
+    <script src="script.js"></script>
 
-    
+    <script>
+        let returning = localStorage.getItem("BAreturning");
+        if (!returning) { // hide nav bar for first time users
+            document.getElementById("nav").style.display = "none";
+        }
+    </script>
     
 </body>
 </html>
