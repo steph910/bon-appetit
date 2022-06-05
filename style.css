@@ -8,6 +8,62 @@ body {
     margin: 5rem 1rem;
     text-align: center;
 }
+.range {
+    padding: 0 65px 0 45px;
+}
+
+/*
+.range .sliderValue {
+    position: relative;
+    width: 100;
+}
+.range .sliderValue span {
+    position: absolute;
+    height: 45px;
+    width: 380px;
+    color: white;
+    font-weight: 500;
+    top: -40px;
+    transform: translateX(-50%) scale(1);
+    transform-origin: bottom;
+    transition: transform 0.3s ease-in-out;
+    line-height: 55px;
+    z-index: 2;
+}
+.range .sliderValue span:after {
+    position: absolute;
+    content: "";
+    height: 45px;
+    width: 45px;
+    background: blue;
+    left: 50%;
+    transform: translateX(-50%) rotate(45deg);
+    border: solid 3px white;
+    z-index: -1;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+.range .field {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%
+}
+.range .field .value {
+    position: absolute;
+    font-size: 18px;
+    font-weight: 600;
+    color: black;
+}
+.range .field .value.left {
+    left: -22px;
+}
+.range .field .value.right {
+    left: -43px;
+}
+*/
 
 
 h1 {
