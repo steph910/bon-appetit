@@ -19,6 +19,19 @@
         input[type=search]{
             border-radius: 100px;
         }
+        #results {
+            display: none;
+        }
+        .card > img{
+            height: 200px;
+            object-fit: cover;
+        }
+        .second-place {
+            margin-top: 100px;
+        }
+        .third-place {
+            margin-top: 150px;
+        }
         @media(max-width: 768px) {
             h1 {
                 font-size: 20vw;
@@ -77,35 +90,281 @@
                 <div class="my-5"><input id="search-btn" class="btn" onclick="getResults()" type="submit" value="Submit"></div>
             </div>
         </form>
+
+        <div id="results">
+            <div class="row justify-content-around mt-5 pt-5 align-items-start">
+                <div class="card col-3 second-place">
+                    <img class="card-img-top" src="https://s3-media4.fl.yelpcdn.com/bphoto/mPM4ClLLZfAhV6eACmV3nA/o.jpg" alt="Card image cap">
+                    <div class="card-body dark-text">
+                        <p class="card-text red-text fw-bold text-center">Sugar Taco</p>
+                        <p><strong>Distance:</strong> <span>10km<span></p>
+                        <p><strong>Rating:</strong> <span>4.5<span></p>
+                        <p><strong>Price:</strong> <span>$$<span></p>
+                        <p class="text-muted text-end"><strong>vegan, Mexican, vegetarian</strong></p>
+                    </div>
+                </div>
+
+                <div class="card col-3">
+                    <img class="card-img-top" src="https://s3-media4.fl.yelpcdn.com/bphoto/0zH1C7bJA5x6DvATfzQowg/o.jpg" alt="Card image cap">
+                    <div class="card-body dark-text">
+                        <p class="card-text red-text fw-bold text-center">Pizzanista!</p>
+                        <p><strong>Distance:</strong> <span>1.57km<span></p>
+                        <p><strong>Rating:</strong> <span>4.0<span></p>
+                        <p><strong>Price:</strong> <span>$<span></p>
+                        <p class="text-muted text-end"><strong>pizza, vegan, gluten-free</strong></p>
+                    </div>
+                </div>
+
+                <div class="card col-3 third-place">
+                    <img class="card-img-top" src="https://s3-media3.fl.yelpcdn.com/bphoto/_t8bndyp5NUXFOa01FynAA/o.jpg" alt="Card image cap">
+                    <div class="card-body dark-text">
+                        <p class="card-text red-text fw-bold text-center">Never Caged!</p>
+                        <p><strong>Distance:</strong> <span>2.3km<span></p>
+                        <p><strong>Rating:</strong> <span>4.0<span></p>
+                        <p><strong>Price:</strong> <span>$$<span></p>
+                        <p class="text-muted text-end"><strong>vegan, American (New)</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <img src="img/podium.png" alt="podium">
+            </div>
+        </div>
+
     </div>
+    
 
     <script>
         // uses typeahead for autocomplete
+
         var $input = $(".typeahead");
         $input.typeahead({
             source: [
-                "avocado toast",
+                "abgoosht",
                 "acai bowls",
+                "adobo",
+                "ahi tuna",
+                "angus beef",
+                "American food",
+                "angel hair pasta",
+                "Asian food",
+                "Asian fusion",
+                "avocado toast",
+                "baked ziti",
+                "bbq",
+                "blt sandwich",
+                "beef",
+                "beef stroganoff",
+                "beef tenderloin",
+                "boba",
+                "breadsticks",
+                "breaded chicken",
+                "breakfast",
+                "breakfast burritos",
+                "breakfast tacos",
+                "buffet",
+                "burgers",
+                "burritos",
+                "calzones",
+                "casserole",
+                "cheeseburgers",
+                "chicken",
+                "chicken alfredo",
+                "chicken nuggets",
+                "chicken parmesan",
+                "chicken pot pie",
+                "chicken wings",
+                "Chinese food",
+                "clam chowder",
+                "club salad",
+                "club sandwich",
+                "coffee",
+                "corn dogs",
+                "crepes",
+                "curry",
+                "dark chocolate mousse",
+                "dan dan noodles",
+                "deep dish pizza",
+                "dessert",
+                "double cheeseburger",
+                "doughnuts",
+                "drumsticks",
+                "dumplings",
+                "duck",
+                "eggs",
+                "egg salad",
+                "eggplant parmesan",
+                "egg rolls",
+                "eggrolls",
+                "empanadas",
+                "enchiladas",
+                "English breakfast",
+                "English muffins",
+                "escargot",
+                "falafels",
+                "fast food",
+                "fajitas",
+                "fettuccine alfredo",
+                "fish",
+                "fish and chips",
+                "fish n' chips",
+                "fish sticks",
+                "fish tacos",
+                "french toast",
+                "fried chicken",
+                "fried fish",
+                "french fries",
+                "garganelli",
+                "gajar ka halwa",
+                "Gazpacho",
+                "gelato",
+                "gnocci",
+                "gopchang",
+                "goulash",
+                "Greek food",
+                "grilled cheese sandwich",
+                "grilled chicken",
+                "gyros",
+                "hakka noodles",
+                "hash browns",
+                "herb crusted salmon",
+                "herring",
+                "hotdogs",
+                "hot pot",
+                "huevos rancheros",
+                "ice cream",
+                "ice cream cake",
+                "iced coffee",
+                "Icelandic salmon grill",
+                "Indian food",
+                "Indonesian food",
+                "Irish food",
+                "Israeli falafels",
+                "Italian food",
+                "Italian gelato",
+                "jaegerschnitzel",
+                "Jamaican food",
+                "Japanese food",
+                "jambalaya",
+                "jota",
+                "kebabs",
+                "Korean food",
+                "Korean bbq",
+                "Korean barbecue",
+                "lamb",
+                "lamb kebabs",
+                "lamb skewers",
+                "lasagna",
+                "lemon chicken",
+                "lemongrass chicken",
+                "lentil soup",
+                "lobster",
+                "mac and cheese",
+                "mac n' cheese",
+                "manicotti",
+                "meatballs",
+                "meatloaf",
+                "Mediterranean Food",
+                "Mexican food",
+                "minestrone",
+                "nachos",
+                "noodles",
+                "omellette",
+                "orange chicken",
+                "pad thai",
+                "paella",
                 "pasta",
+                "pancakes",
+                "paninis",
                 "pizza",
+                "pork chops",
+                "poutine",
+                "pot roast",
+                "pulled pork",
+                "qatayef",
+                "quadrettini",
+                "queen of puddings",
+                "queens cake",
+                "quiche",
+                "quesadellas",
+                "ramen",
+                "ratatouille",
+                "ravioli",
+                "ribs",
+                "risotto",
+                "roast beef",
+                "roast chicken",
+                "seafood",
                 "salad",
+                "salmon",
+                "sandwiches",
+                "sashimi",
+                "shrimp",
+                "skewers",
+                "sliders",
+                "spaghetti",
+                "steak",
+                "stir fry",
+                "stromboli",
+                "stuffed pasta shells",
                 "sushi",
-                "pasta",
+                "Swedish meatballs",
                 "tacos",
-                "",
+                "tater tots",
+                "tapas",
+                "tenderloin",
+                "teriyaki chicken",
+                "Thai food",
+                "tonkotsu",
+                "tostadas",
+                "tortellini soup",
+                "tuna",
+                "udon",
+                "unagi",
+                "uni",
+                "upma",
+                "uszka",
+                "veal",
+                "veggie burger",
+                "vegetable soup",
+                "waffles",
+                "wiener schnitzel",
+                "wienerschnitzel",
+                "wontons",
+                "xacuti",
+                "Xavier soup",
+                "Xavier steak",
+                "yakisoba",
+                "yakitori",
+                "yakhni",
+                "yellowfin tuna",
+                "yellowtail",
+                "yellowtail sashimi",
+                "zeppole",
+                "ziti",
+                "zucchini fritters",
+                "zucchini noodles",
+                "zucchini spaghetti",
+                "zuccotto",
             ],
             autoSelect: true,
         });
         $input.change(function () {
             var current = $input.typeahead("getActive");
             matches = []; //array holding matches to autocomplete
-  
-            if (current) { //check if data matches
-                if (current.name == $input.val()) {
-                    matches.push(current.name);
+            
+            $.each(strs, function(i, str) {
+                if (current.test(str)) {
+                    matches.push(str);
                 }
-            }
+            });
+            // if (current) { //alternative way to append to matches
+            //     if (current.name == $input.val()) {
+            //         matches.push(current.name);
+            //     }
+            // }
         });
+
     </script>
 
 
