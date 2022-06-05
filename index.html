@@ -11,10 +11,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> <!--bootstrap-->
     <link rel="stylesheet" href="style.css">
 
-    <script src=
-"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
-    </script>
-
     <style>
         h1 {
             font-family: 'Delius Swash Caps', cursive;
@@ -38,7 +34,7 @@
             </div>
             <div>
                 <span class="navbar-text">🍕🍱🥗🍔🥙🍛</span> 
-                <!--luxury: moving text across navbar-->
+                
             </div>
             
             <div>
@@ -66,18 +62,66 @@
         <h5>The simple restaurant decider we all need</h5>
     </div>
 
+    <!--for autocomplete-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js">
+    </script>
+
     <div id="content">
-        
-        
-        <form class="">
+        <form id="search-form" onsubmit="return false">
             <div class="flex flex-column text-center">
                 <div><label for="search-input" class="form-label text-center red-text fs-1">Hungry? What are you craving?</label></div>
-                <div class="my-3"><input type="search" id="search-input" class="form-control-lg w-100" placeholder="sushi, tacos, ice cream, boba, chicken, Indian food, etc."> </div>
-                <div class="my-5"><input class="btn" type="submit" value="Submit"></div>
+                <div class="my-3"><input type="search" id="search-input" class="form-control-lg w-100 typeahead" data-provide="typeahead" placeholder="sushi, tacos, ice cream, boba, chicken, Indian food, etc."> </div>
+                <!--above: added class and data-provide typeahead-->
+                <div class="my-5"><input id="search-btn" class="btn" onclick="getResults()" type="submit" value="Submit"></div>
             </div>
         </form>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script>
+        // uses typeahead for autocomplete
+        var $input = $(".typeahead");
+        $input.typeahead({
+            source: [
+                "avocado toast",
+                "acai bowls",
+                "pasta",
+                "pizza",
+                "salad",
+                "sushi",
+                "pasta",
+                "tacos",
+                "",
+            ],
+            autoSelect: true,
+        });
+        $input.change(function () {
+            var current = $input.typeahead("getActive");
+            matches = []; //array holding matches to autocomplete
+  
+            if (current) { //check if data matches
+                if (current.name == $input.val()) {
+                    matches.push(current.name);
+                }
+            }
+        });
+    </script>
+
+
+    <script>
+        let returning = localStorage.getItem("BAreturning");
+        if (!returning) { // redirect first time users to preferences page
+            window.location.replace("preferences.html");
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> <!--bootstrap-->
+    <script src=
+    "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script> <!--jQuery-->
+    <script src="script.js"></script>
+    <script src="yelp.js"></script>
+
 </body>
 </html>
