@@ -91,6 +91,9 @@ h2 {
 .red-text {
     color: #F97068;
 }
+.dark-text {
+    color: #283359;
+}
 
 @media(max-width: 768px) {
     h1 {
